@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Nâng Cao</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/ID3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <style>
+        :root {
+            --js-color: #F7DF1E;
+            /* Màu vàng đặc trưng của JavaScript */
+            --js-dark: #000000;
+            --gradient: linear-gradient(135deg, var(--js-color) 0%, var(--js-dark) 100%);
+            --gradient-hover: linear-gradient(135deg, var(--js-dark) 0%, var(--js-color) 100%);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(232, 232, 232, 0.95), rgba(247, 223, 30, 0.85)),
+                url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=2074&auto=format&fit=crop') center/cover;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #e8e8e8;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23F7DF1E" opacity="0.05"/></svg>');
+            animation: rotate 120s linear infinite;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .section {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(247, 223, 30, 0.08);
+        }
+
+        .card {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(247, 223, 30, 0.15);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .card:hover {
+            background: rgba(245, 245, 245, 0.98);
+            border-color: var(--js-color);
+            box-shadow: 0 8px 15px rgba(247, 223, 30, 0.1);
+        }
+
+        .instructor {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(247, 223, 30, 0.08);
+        }
+
+        .testimonial {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(247, 223, 30, 0.15);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-item {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(247, 223, 30, 0.08);
+        }
+
+        .faq-question {
+            background: rgba(247, 223, 30, 0.08);
+            border: 1px solid rgba(247, 223, 30, 0.15);
+        }
+
+        .cta {
+            background: rgba(240, 240, 240, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(247, 223, 30, 0.08);
+        }
+
+        footer {
+            background: rgba(240, 240, 240, 0.95);
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.03);
+            border-top: 1px solid rgba(247, 223, 30, 0.08);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--js-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--gradient-hover);
+            color: var(--js-color);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--js-color);
+            color: var(--js-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--js-color);
+            color: var(--js-dark);
+        }
+
+        .section-title::after {
+            background: var(--gradient);
+        }
+
+        .card:nth-child(even) {
+            border-top: 4px solid var(--js-dark);
+        }
+
+        .phase-badge {
+            background: var(--gradient);
+            color: var(--js-dark);
+        }
+
+        .tag-js {
+            background-color: var(--js-color);
+            color: var(--js-dark);
+        }
+
+        .social-links a:hover {
+            color: var(--js-color);
+        }
+
+        .social-links a:nth-child(even):hover {
+            color: var(--js-dark);
+        }
+
+        .timeline-line {
+            background: var(--gradient);
+        }
+
+        .testimonial-nav button.active {
+            background: var(--gradient);
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--js-color);
+        }
+
+        .gradient-section {
+            background: linear-gradient(135deg, rgba(247, 223, 30, 0.08), rgba(0, 0, 0, 0.03));
+        }
+
+        .footer-content a:hover {
+            color: var(--js-color);
+        }
+
+        #particles-js {
+            --particle-color: var(--js-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            text-shadow: none;
+            background: linear-gradient(to right, #1a1a1a, #333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            color: #1a1a1a;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .instructor h3 {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .instructor p {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .testimonial-content {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .author-info h4 {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: #444;
+            font-weight: 500;
+        }
+
+        .faq-question {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .faq-answer p {
+            color: #333;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .cta h2 {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .cta p {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .footer-content p {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .footer-content a {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .timeline-content h3 {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .feature-list li {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .phase-badge {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .tag-js {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .parallax-section {
+            background: rgba(232, 232, 232, 0.95);
+        }
+
+        .parallax-content {
+            background: rgba(240, 240, 240, 0.95);
+            border: 1px solid rgba(247, 223, 30, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="floating-stars">
+        <div class="star" style="--size: 3px; --delay: 0s; --duration: 15s; --distance: 50vw"></div>
+    </div>
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__fadeInDown">Làm Chủ JavaScript Nâng Cao</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-1s">Khóa học từ trung cấp đến chuyên sâu - Biến
+                bạn thành chuyên gia JavaScript thực thụ</p>
+            <div class="btn-group">
+                <a href="#register" class="btn btn-primary animate__animated animate__fadeInUp animate__delay-1s">Đăng
+                    Ký Ngay</a>
+                <a href="#curriculum"
+                    class="btn btn-secondary animate__animated animate__fadeInUp animate__delay-1s">Xem Nội Dung</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="curriculum" data-aos="fade-up">
+        <h2 class="section-title">Những Gì Bạn Sẽ Trải Nghiệm</h2>
+        <div class="content-grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon">JSS</div>
+                <h3>Khái niệm nâng cao</h3>
+                <p>Hiểu sâu về Closure, Scope, Hoisting và cách JavaScript engine xử lý mã nguồn. Bạn sẽ nắm được cách
+                    tối ưu hóa hiệu suất và tránh các lỗi phổ biến.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-icon">⚙️</div>
+                <h3>ES6+ và Modern JS</h3>
+                <p>Thành thạo các tính năng hiện đại như Arrow Functions, Promises, Async/Await, Modules, và cách áp
+                    dụng chúng vào các dự án thực tế.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-icon">🌐</div>
+                <h3>DOM và Events</h3>
+                <p>Làm việc chuyên sâu với DOM, Event Delegation, và các kỹ thuật tối ưu để tăng tốc độ xử lý giao diện
+                    người dùng.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-icon">🛠️</div>
+                <h3>Functional Programming</h3>
+                <p>Áp dụng lập trình hàm với Map, Filter, Reduce, cùng các khái niệm như Pure Functions và Immutability
+                    để viết mã sạch hơn.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <div class="card-icon">🎯</div>
+                <h3>Dự án thực tế</h3>
+                <p>Xây dựng 3 dự án thực tế: Ứng dụng SPA với API, Game tương tác sử dụng Canvas, và một thư viện JS cá
+                    nhân để tái sử dụng.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="700">
+                <div class="card-icon">🔌</div>
+                <h3>API và Fetch</h3>
+                <p>Kết nối và xử lý dữ liệu từ API với Fetch API và Axios, bao gồm cách xử lý lỗi và tối ưu hóa request.
+                </p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+                <div class="card-icon">🧪</div>
+                <h3>Testing JavaScript</h3>
+                <p>Viết unit test và integration test với Jest, kiểm tra hiệu suất mã nguồn và đảm bảo chất lượng dự án.
+                </p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="900">
+                <div class="card ICON">🚀</div>
+                <h3>Module và Build Tools</h3>
+                <p>Sử dụng ES Modules, Webpack, Vite để quản lý mã nguồn, tối ưu hóa hiệu suất và triển khai ứng dụng.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <div class="instructor">
+            <div class="instructor-content">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Giảng viên JavaScript">
+                <h3>Nguyễn Văn A</h3>
+                <p>Senior JavaScript Developer với hơn 5 năm kinh nghiệm, từng tham gia phát triển các dự án lớn tại
+                    Việt Nam và quốc tế. Chuyên gia về tối ưu hóa mã nguồn và lập trình hiện đại.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2 class="section-title">Lộ Trình Học Chi Tiết</h2>
+        <div class="glass-timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="phase-badge">PHASE 1</span>
+                        <h3>Tuần 1-2: JavaScript Nâng Cao Cơ Bản</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-code"></i><span>Closure và Scope: Cách quản lý biến và hàm trong các ngữ
+                                cảnh khác nhau</span></li>
+                        <li><i class="fas fa-cube"></i><span>Hoisting và Execution Context: Hiểu cách JS xử lý khai
+                                báo</span></li>
+                        <li><i class="fas fa-cogs"></i><span>Prototypes và Inheritance: Xây dựng hệ thống kế thừa trong
+                                JS</span></li>
+                        <li><i class="fas fa-sync-alt"></i><span>Event Loop: Quản lý tác vụ bất đồng bộ hiệu quả</span>
+                        </li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tag-js">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="phase-badge">PHASE 2</span>
+                        <h3>Tuần 3-4: Modern JavaScript</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-anchor"></i><span>ES6+: Destructuring, Spread, Rest để viết mã ngắn
+                                gọn</span></li>
+                        <li><i class="fas fa-wrench"></i><span>Promises và Async/Await: Xử lý bất đồng bộ chuyên
+                                nghiệp</span></li>
+                        <li><i class="fas fa-route"></i><span>Functional Programming: Ứng dụng Map, Filter,
+                                Reduce</span></li>
+                        <li><i class="fas fa-file-signature"></i><span>DOM Manipulation nâng cao: Tối ưu giao diện
+                                động</span></li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tag-js">ES6+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="phase-badge">PHASE 3</span>
+                        <h3>Tuần 5-6: Ứng dụng thực tế</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-desktop"></i><span>Xây dựng SPA: Tạo ứng dụng một trang với API</span></li>
+                        <li><i class="fas fa-gamepad"></i><span>Game JS: Lập trình game đơn giản với Canvas</span></li>
+                        <li><i class="fas fa-tools"></i><span>Thư viện cá nhân: Viết thư viện JS tái sử dụng</span></li>
+                        <li><i class="fas fa-cloud"></i><span>Triển khai: Đưa dự án lên Netlify hoặc Vercel</span></li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tag-js">Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2 class="section-title">Học JavaScript Nâng Cao Như Thế Nào?</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ?si=example"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="play-button"></div>
+        </div>
+        <p style="text-align: center; margin-top: 1rem;">Xem video giới thiệu để hiểu cách chúng tôi biến bạn thành
+            chuyên gia JavaScript!</p>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2 class="section-title">Học Viên Nói Gì Về Khóa Học</h2>
+        <div class="testimonials-container">
+            <div class="testimonials-track">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Khóa học giúp mình hiểu sâu hơn về JavaScript và áp dụng vào các dự án thực tế. Giảng viên rất
+                        nhiệt tình, giải đáp chi tiết mọi thắc mắc!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Học viên">
+                        <div class="author-info">
+                            <h4>Nguyễn Thị B</h4>
+                            <p>Frontend Developer tại FPT Software</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Sau khóa học, mình tự tin hơn khi làm việc với các dự án phức tạp. Các bài tập thực hành rất
+                        thực tế và hữu ích."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Học viên">
+                        <div class="author-info">
+                            <h4>Trần Văn C</h4>
+                            <p>Fullstack Developer tại Tiki</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="active"></button>
+                <button></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tôi cần biết gì trước khi học khóa này?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Bạn cần nắm cơ bản về JavaScript (biến, hàm, vòng lặp, DOM cơ bản) để theo kịp nội dung nâng cao.
+                        Nếu chưa chắc, chúng tôi có tài liệu ôn tập miễn phí!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Khóa học có cấp chứng chỉ không?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Có, bạn sẽ nhận được chứng chỉ hoàn thành khóa học sau khi hoàn thành tất cả bài tập và dự án
+                        cuối khóa, được công nhận bởi các công ty công nghệ.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tôi có thể học trong bao lâu?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Khóa học thiết kế trong 8 tuần với 3-5 giờ học mỗi tuần. Bạn có thể học theo tốc độ riêng vì tất
+                        cả bài giảng đều có sẵn online.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tôi sẽ nhận được hỗ trợ như thế nào?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Bạn sẽ được hỗ trợ 1:1 qua Discord, email, và các buổi Q&A trực tiếp với giảng viên mỗi tuần.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="register" data-aos="fade-up">
+        <div class="cta">
+            <div class="cta-content">
+                <h2>Sẵn Sàng Trở Thành JavaScript Expert?</h2>
+                <p>Tham gia ngay để nâng tầm kỹ năng và chinh phục các dự án phức tạp!</p>
+                <a href="#" class="btn btn-primary">Đăng Ký Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section" data-aos="fade-up">
+        <div class="parallax-bg"></div>
+        <div class="parallax-content">
+            <h2>Trải nghiệm học tập đột phá</h2>
+            <p>Với phương pháp thực hành thực tế, công nghệ tiên tiến và sự hỗ trợ tận tâm, chúng tôi giúp bạn làm chủ
+                JavaScript một cách nhanh chóng và hiệu quả.</p>
+            <a href="#" class="btn btn-primary">Khám phá ngay</a>
+        </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2 class="section-title">Lộ trình 3D tương tác</h2>
+        <div class="flip-card-container">
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h3>Giai đoạn 1</h3>
+                    <p>JavaScript Nâng Cao Cơ Bản</p>
+                    <div class="card-icon">👨‍💻</div>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Nội dung chi tiết</h3>
+                    <ul>
+                        <li>Closure & Scope</li>
+                        <li>Prototypes</li>
+                        <li>Event Loop</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h3>Giai đoạn 2</h3>
+                    <p>Modern JavaScript</p>
+                    <div class="card-icon">⚙️</div>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Nội dung chi tiết</h3>
+                    <ul>
+                        <li>ES6+ Features</li>
+                        <li>Async/Await</li>
+                        <li>Functional JS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-front">
+                    <h3>Giai đoạn 3</h3>
+                    <p>Dự án thực tế</p>
+                    <div class="card-icon">🎯</div>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Nội dung chi tiết</h3>
+                    <ul>
+                        <li>SPA Development</li>
+                        <li>Canvas Game</li>
+                        <li>Custom Library</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gradient-section animated-gradient" data-aos="fade-up">
+        <div class="gradient-content">
+            <h2>Đăng ký ngay hôm nay</h2>
+            <p>Nhận ưu đãi giảm 20% khi đăng ký trước ngày 15/04/2025. Số lượng có hạn!</p>
+            <a href="#" class="btn btn-primary">Nhận ưu đãi</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wave"></div>
+        <div class="footer-content">
+            <p>© 2024 Khóa học JavaScript Nâng Cao | Liên hệ: <a
+                    href="mailto:contact@jscourse.com">contact@jscourse.com</a></p>
+            <div class="social-footer">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            particlesJS.load('particles-js', '/online-learning/json/id5.json', function () {
+                console.log('Particles config loaded successfully');
+            }).catch(error => {
+                console.error('Failed to load particles config:', error);
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80 },
+                        color: { value: ["#F7DF1E", "#000000"] },
+                        shape: {
+                            type: ["circle", "triangle"],
+                            stroke: { width: 0 },
+                            polygon: { nb_sides: 5 }
+                        },
+                        opacity: {
+                            value: 0.6,
+                            random: true
+                        },
+                        size: {
+                            value: 3,
+                            random: true
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#F7DF1E",
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: "grab"
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: "push"
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                parallaxBg.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+            }
+        });
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function () {
+                this.classList.toggle('flipped');
+            });
+        });
+
+        const gradientSection = document.querySelector('.gradient-section');
+        if (gradientSection) {
+            gradientSection.addEventListener('mouseenter', function () {
+                this.style.animationPlayState = 'paused';
+            });
+            gradientSection.addEventListener('mouseleave', function () {
+                this.style.animationPlayState = 'running';
+            });
+        }
+
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                const icon = question.querySelector('span:last-child');
+                icon.textContent = item.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-nav button');
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => {
+                testimonial.style.transform = `translateX(-${index * 100}%)`;
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            currentIndex = index;
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showTestimonial(index));
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            showTestimonial(currentIndex);
+        }, 5000);
+
+        const videoContainer = document.querySelector('.video-container');
+        const playButton = document.querySelector('.play-button');
+
+        if (videoContainer && playButton) {
+            videoContainer.addEventListener('click', () => {
+                const iframe = videoContainer.querySelector('iframe');
+                if (iframe) {
+                    iframe.src += "&autoplay=1";
+                    playButton.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="/online-learning/scripts/id5-timeline-animation.js"></script>
+</body>
+
+</html>

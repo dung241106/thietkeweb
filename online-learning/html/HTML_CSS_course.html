@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa học HTML/CSS Cao Cấp | Hiệu ứng Đẹp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/ID1.CSS">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <style>
+    :root {
+      --html-color: #E34F26;
+      --css-color: #1B73BA;
+      --html-dark: #c23e17;
+      --css-dark: #155b94;
+      --gradient: linear-gradient(135deg, var(--html-color) 0%, var(--css-color) 100%);
+      --gradient-hover: linear-gradient(135deg, var(--css-color) 0%, var(--html-color) 100%);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(27, 115, 186, 0.9), rgba(227, 79, 38, 0.95)),
+        url('https://wallpaperaccess.com/full/1631879.jpg') center/cover;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--gradient-hover);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--css-color);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--css-color);
+    }
+
+    .section-title::after {
+      background: var(--gradient);
+    }
+
+    .card {
+      border-top: 4px solid var(--html-color);
+    }
+
+    .card:nth-child(even) {
+      border-top: 4px solid var(--css-color);
+    }
+
+    .phase-badge {
+      background: var(--gradient);
+    }
+
+    .tag-html {
+      background-color: var(--html-color);
+    }
+
+    .tag-css {
+      background-color: var(--css-color);
+    }
+
+    .social-links a:hover {
+      color: var(--html-color);
+    }
+
+    .social-links a:nth-child(even):hover {
+      color: var(--css-color);
+    }
+
+    .timeline-line {
+      background: var(--gradient);
+    }
+
+    .testimonial-nav button.active {
+      background: var(--gradient);
+    }
+
+    .faq-item.active .faq-question {
+      color: var(--html-color);
+    }
+
+    .gradient-section {
+      background: var(--gradient);
+    }
+
+    .footer-content a:hover {
+      color: var(--html-color);
+    }
+
+    /* Update particles color to match HTML/CSS theme */
+    #particles-js {
+      --particle-color: var(--html-color);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(to right, #ffffff, #E34F26);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="floating-stars">
+    <div class="star" style="--size: 3px; --delay: 0s; --duration: 15s; --distance: 50vw"></div>
+  </div>
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content animate__animated animate__fadeIn">
+      <h1 class="animate__animated animate__fadeInDown">Làm Chủ HTML và CSS</h1>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">Khóa học thực chiến với dự án thực tế và nhiều hiệu
+        ứng đẹp mắt</p>
+      <div class="btn-group">
+        <a href="#register" class="btn btn-primary animate__animated animate__fadeInUp animate__delay-1s">Đăng Ký
+          Ngay</a>
+        <a href="#curriculum" class="btn btn-secondary animate__animated animate__fadeInUp animate__delay-1s">Xem Nội
+          Dung</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="curriculum" data-aos="fade-up">
+    <h2 class="section-title">Những Gì Bạn Sẽ Học</h2>
+    <div class="content-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon">📚</div>
+        <h3>Cốt lõi HTML/CSS</h3>
+        <p>Hiểu sâu về cấu trúc HTML, CSS và cách sử dụng chúng để tạo ra giao diện website đẹp và responsive</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon">🎨</div>
+        <h3>Thiết kế Web Responsive</h3>
+        <p>Tạo trang web tương thích với mọi thiết bị, từ điện thoại đến máy tính để bàn</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon">🎯</div>
+        <h3>CSS Flexbox và Grid</h3>
+        <p>Thành thạo kỹ thuật bố cục với Flexbox và Grid để tạo giao diện linh hoạt</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon">🎨</div>
+        <h3>CSS Animations</h3>
+        <p>Tạo hiệu ứng hoạt hình và chuyển động để làm cho trang web sống động hơn</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-icon">🛠️</div>
+        <h3>Dự án thực tế</h3>
+        <p>Xây dựng 3 dự án từ cơ bản đến nâng cao để áp dụng kiến thức đã học</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-icon">🔌</div>
+        <h3>HTML5 và CSS3</h3>
+        <p>Sử dụng các tính năng mới nhất của HTML5 và CSS3 để tạo trang web hiện đại</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="700">
+        <div class="card-icon">🧪</div>
+        <h3>Testing trên các trình duyệt</h3>
+        <p>Kiểm tra và đảm bảo trang web hoạt động tốt trên tất cả các trình duyệt</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="800">
+        <div class="card-icon">🚀</div>
+        <h3>Deployment & CI/CD</h3>
+        <p>Triển khai trang web lên các nền tảng như Netlify, Vercel và cấu hình CI/CD với GitHub Actions</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <div class="instructor">
+      <div class="instructor-content">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Giảng viên HTML/CSS">
+        <h3>Nguyễn Văn A</h3>
+        <p>Senior Web Developer với 5+ năm kinh nghiệm, từng làm việc tại các công ty công nghệ hàng đầu Việt Nam và
+          quốc tế</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Lộ Trình Học Chi Tiết</h2>
+    <div class="glass-timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="phase-badge">PHASE 1</span>
+            <h3>Tuần 1-2: Nhập môn HTML/CSS</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-code"></i><span>Cài đặt môi trường phát triển</span></li>
+            <li><i class="fas fa-cube"></i><span>Cấu trúc HTML cơ bản</span></li>
+            <li><i class="fas fa-cogs"></i><span>CSS Selectors và Properties</span></li>
+            <li><i class="fas fa-sync-alt"></i><span>Box Model và Positioning</span></li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag-html">HTML</span>
+            <span class="tag-css">CSS</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="phase-badge">PHASE 2</span>
+            <h3>Tuần 3-4: HTML/CSS Nâng Cao</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-anchor"></i><span>CSS Flexbox và Grid</span></li>
+            <li><i class="fas fa-wrench"></i><span>CSS Animations và Transitions</span></li>
+            <li><i class="fas fa-route"></i><span>Responsive Design</span></li>
+            <li><i class="fas fa-file-signature"></i><span>HTML5 Forms và Validation</span></li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag-flexbox">Flexbox</span>
+            <span class="tag-grid">Grid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Học HTML/CSS Như Thế Nào?</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HGTJBPNC-Gw?si=IuROebGYWIIl8LHe"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="play-button"></div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Học Viên Nói Gì Về Khóa Học</h2>
+    <div class="testimonials-container">
+      <div class="testimonials-track">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            "Khóa học giúp mình hệ thống lại kiến thức HTML/CSS một cách bài bản nhất. Giảng viên nhiệt tình, support
+            nhanh chóng khi mình gặp vấn đề."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Học viên">
+            <div class="author-info">
+              <h4>Nguyễn Thị B</h4>
+              <p>Frontend Developer tại FPT Software</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Tôi chưa biết gì về HTML/CSS có học được không?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Khóa học được thiết kế cho người mới bắt đầu, bạn chỉ cần có kiến thức cơ bản về máy tính là có thể theo
+            học.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Khóa học có cấp chứng chỉ không?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Có, bạn sẽ nhận được chứng chỉ hoàn thành khóa học sau khi làm xong tất cả bài tập và dự án cuối khóa.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Tôi có thể học trong bao lâu?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Khóa học thiết kế trong 8 tuần, nhưng bạn có thể học theo tốc độ của mình vì tất cả bài giảng đều có sẵn.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="register" data-aos="fade-up">
+    <div class="cta">
+      <div class="cta-content">
+        <h2>Sẵn Sàng Trở Thành HTML/CSS Developer?</h2>
+        <a href="#" class="btn btn-primary">Đăng Ký Ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="parallax-section" data-aos="fade-up">
+    <div class="parallax-bg"></div>
+    <div class="parallax-content">
+      <h2>Trải nghiệm học tập đột phá</h2>
+      <p>Với công nghệ tiên tiến và phương pháp giảng dạy hiện đại, chúng tôi mang đến trải nghiệm học HTML/CSS tốt nhất
+      </p>
+      <a href="#" class="btn btn-primary">Khám phá ngay</a>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Lộ trình 3D tương tác</h2>
+    <div class="flip-card-container">
+      <div class="flip-card">
+        <div class="flip-card-front">
+          <h3>Giai đoạn 1</h3>
+          <p>Nhập môn HTML/CSS</p>
+          <div class="card-icon">👨‍💻</div>
+        </div>
+        <div class="flip-card-back">
+          <h3>Nội dung chi tiết</h3>
+          <ul>
+            <li>HTML Structure</li>
+            <li>CSS Styling</li>
+            <li>Basic Layout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gradient-section animated-gradient" data-aos="fade-up">
+    <div class="gradient-content">
+      <h2>Đăng ký ngay hôm nay</h2>
+      <p>Nhận ưu đãi đặc biệt khi đăng ký trong tháng này</p>
+      <a href="#" class="btn btn-primary">Nhận ưu đãi</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wave"></div>
+    <div class="footer-content">
+      <p>© 2024 Khóa học HTML/CSS | Liên hệ: <a href="mailto:contact@htmlcsscourse.com">contact@htmlcsscourse.com</a>
+      </p>
+      <div class="social-footer">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      particlesJS.load('particles-js', '/online-learning/json/id5.json', function () {
+        console.log('Particles config loaded successfully');
+      }).catch(error => {
+        console.error('Failed to load particles config:', error);
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80 },
+            color: { value: ["#E34F26", "#1B73BA"] },  // HTML5 orange and CSS3 blue
+            shape: {
+              type: ["circle", "triangle"],
+              stroke: { width: 0 },
+              polygon: { nb_sides: 5 }
+            },
+            opacity: {
+              value: 0.6,
+              random: true
+            },
+            size: {
+              value: 3,
+              random: true
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#E34F26",  // HTML5 orange
+              opacity: 0.4,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: "none",
+              random: true,
+              straight: false,
+              out_mode: "out",
+              bounce: false
+            }
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "grab"
+              },
+              onclick: {
+                enable: true,
+                mode: "push"
+              },
+              resize: true
+            },
+            modes: {
+              grab: {
+                distance: 140,
+                line_linked: {
+                  opacity: 1
+                }
+              },
+              push: {
+                particles_nb: 4
+              }
+            }
+          },
+          retina_detect: true
+        });
+      });
+    });
+
+    window.addEventListener('scroll', function () {
+      const parallaxBg = document.querySelector('.parallax-bg');
+      if (parallaxBg) {
+        parallaxBg.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+      }
+    });
+
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function () {
+        this.classList.toggle('flipped');
+      });
+    });
+
+    const gradientSection = document.querySelector('.gradient-section');
+    if (gradientSection) {
+      gradientSection.addEventListener('mouseenter', function () {
+        this.style.animationPlayState = 'paused';
+      });
+      gradientSection.addEventListener('mouseleave', function () {
+        this.style.animationPlayState = 'running';
+      });
+    }
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+        const icon = question.querySelector('span:last-child');
+        icon.textContent = item.classList.contains('active') ? '-' : '+';
+      });
+    });
+
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dots = document.querySelectorAll('.testimonial-nav button');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      testimonials.forEach(testimonial => {
+        testimonial.style.transform = `translateX(-${index * 100}%)`;
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      currentIndex = index;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showTestimonial(index));
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    }, 5000);
+
+    const videoContainer = document.querySelector('.video-container');
+    const playButton = document.querySelector('.play-button');
+
+    if (videoContainer && playButton) {
+      videoContainer.addEventListener('click', () => {
+        const iframe = videoContainer.querySelector('iframe');
+        if (iframe) {
+          iframe.src += "&autoplay=1";
+          playButton.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script src="/online-learning/scripts/id5-timeline-animation.js"></script>
+</body>
+
+</html>
