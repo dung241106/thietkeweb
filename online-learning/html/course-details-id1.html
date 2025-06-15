@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chi tiết Khoá học - HTML Cơ Bản</title>
+  <style>
+    /* Demo CSS nhanh, bạn có thể bỏ vào file style.css hoặc tuỳ chỉnh */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.5;
+    }
+    /* Section chung */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    /* Hero style */
+    .hero {
+      background: url('https://files.fullstack.edu.vn/f8-prod/courses/7.png') no-repeat center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+    .hero .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0 0.5rem;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .hero .btn:hover {
+      background-color: #e44a14;
+    }
+
+    /* Sub section headings */
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #ff5722;
+    }
+
+    .intro-section,
+    .content-section,
+    .instructor-section {
+      background: #222;
+      margin-bottom: 2rem;
+      border-radius: 6px;
+      padding: 2rem;
+    }
+    .intro-list, .content-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .intro-item,
+    .content-item {
+      flex: 1 1 calc(25% - 1rem);
+      background: #333;
+      padding: 1rem;
+      border-radius: 4px;
+      min-width: 200px;
+    }
+    .intro-item h4,
+    .content-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #ff5722;
+    }
+
+    /* Instructor */
+    .instructor {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .instructor img {
+      width: 200px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .instructor-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .instructor-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      .intro-item, .content-item {
+        flex: 1 1 calc(50% - 1rem);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PHẦN HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>HTML Cơ Bản</h1>
+    <p>Khoá học giúp bạn nắm vững cấu trúc HTML, thẻ cơ bản, 
+       tạo nền tảng vững chắc cho lập trình Frontend.</p>
+    <a href="#" class="btn">Bắt đầu học ngay</a>
+    <a href="#" class="btn">Mua ngay</a>
+  </div>
+</section>
+
+<!-- PHẦN GIỚI THIỆU: "Khoá học này dành cho ai?" -->
+<section class="intro-section">
+  <h2 class="section-title">Khoá học này dành cho ai?</h2>
+  <div class="intro-list">
+    <div class="intro-item">
+      <h4>Sinh Viên IT</h4>
+      <p>Mong muốn có kiến thức thực tế, vững chắc để năm sau đi thực tập.</p>
+    </div>
+    <div class="intro-item">
+      <h4>Người Đã Đi Làm</h4>
+      <p>Muốn hiểu sâu về HTML để nâng cao tay nghề, chuyển từ Backend sang Frontend.</p>
+    </div>
+    <div class="intro-item">
+      <h4>Người Trái Ngành</h4>
+      <p>Chưa biết bắt đầu từ đâu và cần một lộ trình bài bản về HTML/CSS.</p>
+    </div>
+    <div class="intro-item">
+      <h4>Mọi đối tượng</h4>
+      <p>Bạn muốn xây dựng website nhanh chóng, nắm vững nền tảng Frontend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHẦN NỘI DUNG (Bạn sẽ học được gì?) -->
+<section class="content-section">
+  <h2 class="section-title">Bạn sẽ học được những gì?</h2>
+  <div class="content-list">
+    <div class="content-item">
+      <h4>Cấu trúc chuẩn HTML</h4>
+      <p>Hiểu rõ DOCTYPE, các thẻ `<html>`, `<head>`, `<body>`…</p>
+    </div>
+    <div class="content-item">
+      <h4>Các thẻ Meta</h4>
+      <p>Tối ưu SEO onpage, hiển thị thông tin trên mạng xã hội.</p>
+    </div>
+    <div class="content-item">
+      <h4>Liên kết và Image</h4>
+      <p>Cách chèn ảnh, tạo liên kết giữa các trang, link ngoài, mailto...</p>
+    </div>
+    <div class="content-item">
+      <h4>Các thẻ Semantic</h4>
+      <p>header, nav, footer, main… Giúp SEO và code dễ đọc hơn.</p>
+    </div>
+    <!-- ... bạn bổ sung thêm các chủ đề khác ... -->
+  </div>
+</section>
+
+<!-- PHẦN NGƯỜI HƯỚNG DẪN -->
+<section class="instructor-section">
+  <h2 class="section-title">Người hướng dẫn</h2>
+  <div class="instructor">
+    <img src="https://yt3.googleusercontent.com/ytc/AGIKgqOz-4Gwi3QGGJDDtGhF-Fk9nq8YV-Jb6RWKsw=s68-c-k-c0x00ffffff-no-rj"
+         alt="Sơn Đặng">
+    <div class="instructor-info">
+      <h3>Sơn Đặng</h3>
+      <p>Founder của Cộng Đồng Học Lập Trình F8, với 10+ năm kinh nghiệm thực tế.</p>
+      <p>Các khoá học được yêu thích bởi cách truyền đạt dễ hiểu, truyền động lực cho học viên.</p>
+      <a href="#" class="btn" style="margin-top:1rem;">Tìm hiểu thêm</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHẦN QUIZ HOẶC VIDEO -->
+<section class="content-section">
+  <h2 class="section-title">Video Bài Giảng Chính</h2>
+  <!-- Tích hợp Video (nếu muốn) -->
+  <div style="text-align:center;">
+    <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/ub1Dc3NHZ3s"
+      title="HTML Cơ Bản" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- PHẦN QUIZ (Nếu muốn) -->
+<section class="content-section" id="quizSection">
+  <h2 class="section-title">Bài Quiz Kiểm Tra</h2>
+  <!-- Chèn quiz HTML (hoặc do JS render) -->
+  <div id="quizContainer" style="background:#333; padding:1rem; border-radius:4px;">
+    <!-- JS main.js sẽ render quiz cho id=1 nếu bạn gọi hàm renderCourseDetails() -->
+  </div>
+</section>
+
+<!-- Cuối trang -->
+<section style="text-align:center;">
+  <p>Copyright © 2023 - F8 (Demo)
+    <br />
+    <a href="#top" style="color:#ff5722; text-decoration:none;">Lên đầu trang</a>
+  </p>
+</section>
+<script src="scripts/main.js"></script>
+<script>
+  // Nếu bạn vẫn muốn gọi renderCourseDetails() để tự động nhúng videoUrl và quiz
+  // Thì bạn có thể gọi nó ở đây, hoặc custom 1 hàm.
+  renderCourseDetails(); 
+</script>
+
+</body>
+</html>

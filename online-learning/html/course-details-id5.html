@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa học React.js Cao Cấp | Hiệu ứng Đẹp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="/online-learning/styles/style.css">
+  <link rel="stylesheet" href="/online-learning/styles/ID5.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="floating-stars">
+    <div class="star" style="--size: 3px; --delay: 0s; --duration: 15s; --distance: 50vw"></div>
+    <!-- Thêm 15-20 div star tương tự với các giá trị ngẫu nhiên -->
+  </div>
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content animate__animated animate__fadeIn">
+      <h1 class="animate__animated animate__fadeInDown">Làm Chủ React.js 2024</h1>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">Khóa học thực chiến với dự án thực tế và nhiều hiệu ứng đẹp mắt</p>
+      <div class="btn-group">
+        <a href="#register" class="btn btn-primary animate__animated animate__fadeInUp animate__delay-1s">Đăng Ký Ngay</a>
+        <a href="#curriculum" class="btn btn-secondary animate__animated animate__fadeInUp animate__delay-1s">Xem Nội Dung</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bạn sẽ học được gì -->
+  <section class="section" id="curriculum" data-aos="fade-up">
+    <h2 class="section-title">Những Gì Bạn Sẽ Học</h2>
+    <div class="content-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon">📚</div>
+        <h3>Cốt lõi React.js</h3>
+        <p>Hiểu sâu về JSX, Component, State, Props và Virtual DOM - nền tảng để làm chủ React</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon">⚛️</div>
+        <h3>React Hooks</h3>
+        <p>Thành thạo useState, useEffect, useContext, useReducer và custom hooks để code ngắn gọn hơn</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon">🧭</div>
+        <h3>React Router</h3>
+        <p>Xây dựng ứng dụng đa trang với routing, protected routes và dynamic routing</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon">📊</div>
+        <h3>Quản lý state</h3>
+        <p>Sử dụng Context API, Redux Toolkit để quản lý state phức tạp trong ứng dụng lớn</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-icon">⚡</div>
+        <h3>Performance Optimization</h3>
+        <p>Các kỹ thuật tối ưu hiệu năng: memo, useMemo, useCallback, code splitting</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-icon">🛠️</div>
+        <h3>Dự án thực tế</h3>
+        <p>Xây dựng 3 dự án từ cơ bản đến nâng cao để áp dụng kiến thức đã học</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="700">
+        <div class="card-icon">🔌</div>
+        <h3>React + API Integration</h3>
+        <p>Kết nối React với RESTful API và GraphQL, xử lý authentication với JWT</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="800">
+        <div class="card-icon">🧪</div>
+        <h3>Testing trong React</h3>
+        <p>Viết unit test với Jest và React Testing Library, test component và custom hooks</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="900">
+        <div class="card-icon">🚀</div>
+        <h3>Deployment & CI/CD</h3>
+        <p>Triển khai ứng dụng lên Vercel, Netlify, cấu hình CI/CD với GitHub Actions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giảng viên -->
+  <section class="section" data-aos="fade-up">
+    <div class="instructor">
+      <div class="instructor-content">
+        <div class="instructor-image">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Giảng viên React.js">
+          <div class="image-hover-effect"></div>
+        </div>
+        <h3>Nguyễn Văn A</h3>
+        <p class="instructor-title">Senior React Developer | Tech Lead</p>
+        <p class="instructor-bio">Với 5+ năm kinh nghiệm phát triển ứng dụng React, tôi đã dẫn dắt nhiều dự án lớn cho các công ty hàng đầu như FPT, Viettel và các startup công nghệ tại Singapore.</p>
+        <div class="instructor-skills">
+          <h4>Chuyên môn:</h4>
+          <div class="skills-container">
+            <span class="skill-badge">React.js</span>
+            <span class="skill-badge">Next.js</span>
+            <span class="skill-badge">TypeScript</span>
+            <span class="skill-badge">Redux</span>
+            <span class="skill-badge">GraphQL</span>
+            <span class="skill-badge">Performance Optimization</span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" data-tooltip="Portfolio"><i class="fas fa-briefcase"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lộ trình học chi tiết -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Lộ Trình Học Chi Tiết</h2>
+    <div class="glass-timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="phase-badge">PHASE 1</span>
+            <h3>Tuần 1-2: Nhập môn React</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-code"></i><span>Cài đặt môi trường, Webpack, Babel</span></li>
+            <li><i class="fas fa-cube"></i><span>JSX và Component cơ bản</span></li>
+            <li><i class="fas fa-cogs"></i><span>State và Props nâng cao</span></li>
+            <li><i class="fas fa-sync-alt"></i><span>Lifecycle methods</span></li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag-react">React Core</span>
+            <span class="tag-js">JavaScript</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="phase-badge">PHASE 2</span>
+            <h3>Tuần 3-4: React Hiện Đại</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-anchor"></i><span>React Hooks (useState, useEffect...)</span></li>
+            <li><i class="fas fa-wrench"></i><span>Custom Hooks</span></li>
+            <li><i class="fas fa-route"></i><span>React Router v6</span></li>
+            <li><i class="fas fa-file-signature"></i><span>Form handling với Formik</span></li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag-hooks">React Hooks</span>
+            <span class="tag-router">Routing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video giới thiệu -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Học React.js Như Thế Nào?</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/bMknfKXIFA8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="play-button"></div>
+    </div>
+  </section>
+
+  <!-- Phản hồi học viên -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Học Viên Nói Gì Về Khóa Học</h2>
+    <div class="testimonials-container">
+      <button class="testimonial-nav-btn prev-btn" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>
+      </button>
+      <div class="testimonials-wrapper">
+        <div class="testimonials-track">
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"Khóa học giúp mình hệ thống lại kiến thức React một cách bài bản nhất. Giảng viên nhiệt tình, support nhanh chóng khi mình gặp vấn đề."</p>
+              <div class="rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Học viên Nguyễn Thị B" loading="lazy">
+              <div class="author-info">
+                <h4>Nguyễn Thị B</h4>
+                <p>Frontend Developer tại FPT Software</p>
+                <span class="course-info">Đã hoàn thành khóa "React Mastery"</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"Mình đã học nhiều khóa React nhưng khóa này thực sự khác biệt. Cách tiếp cận từ cơ bản đến nâng cao giúp mình hiểu bản chất vấn đề, không chỉ dừng ở sử dụng thư viện."</p>
+              <div class="rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Học viên Trần Văn C" loading="lazy">
+              <div class="author-info">
+                <h4>Trần Văn C</h4>
+                <p>Fullstack Developer tại Viettel</p>
+                <span class="course-info">Đã hoàn thành 3 khóa học</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"Sau khóa học mình tự tin apply vào vị trí React Developer và đã được nhận sau 2 tuần. Cảm ơn giảng viên và đội ngũ hỗ trợ đã giúp mình thay đổi sự nghiệp."</p>
+              <div class="rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Học viên Lê Thị D" loading="lazy">
+              <div class="author-info">
+                <h4>Lê Thị D</h4>
+                <p>React Developer tại Tiki</p>
+                <span class="course-info">Học viên xuất sắc tháng 12/2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="testimonial-nav-btn next-btn" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+      </button>
+      <div class="testimonial-dots">
+        <button class="dot active" aria-label="Go to testimonial 1"></button>
+        <button class="dot" aria-label="Go to testimonial 2"></button>
+        <button class="dot" aria-label="Go to testimonial 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Tôi chưa biết gì về React có học được không?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Khóa học được thiết kế cho người mới bắt đầu, bạn chỉ cần có kiến thức cơ bản về HTML, CSS và JavaScript là có thể theo học.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Khóa học có cấp chứng chỉ không?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Có, bạn sẽ nhận được chứng chỉ hoàn thành khóa học sau khi làm xong tất cả bài tập và dự án cuối khóa.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Tôi có thể học trong bao lâu?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Khóa học thiết kế trong 8 tuần, nhưng bạn có thể học theo tốc độ của mình vì tất cả bài giảng đều có sẵn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="register" data-aos="fade-up">
+    <div class="cta">
+      <div class="cta-background">
+        <div class="cta-particles"></div>
+        <div class="cta-glow"></div>
+      </div>
+      <div class="cta-content">
+        <h2 class="clean-text">Sẵn Sàng Trở Thành React Developer?</h2>
+        <p>Tham gia ngay hôm nay để bắt đầu hành trình chinh phục React.js với các dự án thực tế!</p>
+        <div class="cta-features">
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Học thực chiến</span>
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Dự án thực tế</span>
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Hỗ trợ 1-1</span>
+        </div>
+        <a href="#" class="btn btn-primary neon-border">
+          <span class="btn-text">Đăng Ký Ngay</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Section -->
+  <section class="parallax-section" data-aos="fade-up">
+    <div class="parallax-bg"></div>
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+      <h2 class="clean-text">Trải nghiệm học tập đột phá</h2>
+      <p>Với công nghệ tiên tiến và phương pháp giảng dạy hiện đại, chúng tôi mang đến trải nghiệm học React.js tốt nhất</p>
+      <div class="parallax-features">
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Công nghệ tiên tiến</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Phương pháp hiện đại</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Học React.js tối ưu</span>
+      </div>
+      <a href="#" class="btn btn-primary neon-border">Khám phá ngay</a>
+    </div>
+  </section>
+
+  <!-- 3D Flip Card -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title clean-text">Lộ trình 3D tương tác</h2>
+    <div class="flip-card-container">
+      <div class="flip-card neon-border">
+        <div class="flip-card-front">
+          <h3>Giai đoạn 1</h3>
+          <p>Nhập môn React.js</p>
+          <div class="card-icon">👨‍💻</div>
+        </div>
+        <div class="flip-card-back">
+          <h3>Nội dung chi tiết</h3>
+          <ul>
+            <li>JSX & Components</li>
+            <li>State & Props</li>
+            <li>Lifecycle cơ bản</li>
+          </ul>
+          <span class="feature-tag">React Core</span>
+        </div>
+      </div>
+      <div class="flip-card neon-border">
+        <div class="flip-card-front">
+          <h3>Giai đoạn 2</h3>
+          <p>React Hiện Đại</p>
+          <div class="card-icon">⚛️</div>
+        </div>
+        <div class="flip-card-back">
+          <h3>Nội dung chi tiết</h3>
+          <ul>
+            <li>React Hooks</li>
+            <li>Custom Hooks</li>
+            <li>React Router</li>
+          </ul>
+          <span class="feature-tag">Hooks & Routing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gradient Animation Section -->
+  <section class="gradient-section animated-gradient" data-aos="fade-up">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-content">
+      <h2 class="clean-text">Đăng ký ngay hôm nay</h2>
+      <p>Nhận ưu đãi đặc biệt khi đăng ký trong tháng này</p>
+      <div class="gradient-features">
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Ưu đãi 20%</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Truy cập trọn đời</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Hỗ trợ 24/7</span>
+      </div>
+      <a href="#" class="btn btn-primary neon-border">Nhận ưu đãi</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section" data-aos="fade-up">
+    <div class="wave"></div>
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3 class="clean-text">React Mastery</h3>
+        <p>Chinh phục React.js - Tương lai của bạn bắt đầu từ đây!</p>
+      </div>
+      <div class="footer-info">
+        <p>© 2024 Khóa học React.js</p>
+        <p>Liên hệ: <a href="mailto:contact@reactcourse.com" class="neon-link">contact@reactcourse.com</a></p>
+      </div>
+      <div class="social-footer">
+        <a href="#" class="social-icon" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon" data-tooltip="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-icon" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-links">
+        <a href="#curriculum" class="footer-link">Nội dung khóa học</a>
+        <a href="#register" class="footer-link">Đăng ký</a>
+        <a href="#" class="footer-link">Chính sách bảo mật</a>
+        <a href="#" class="footer-link">Điều khoản dịch vụ</a>
+      </div>
+    </div>
+    <div class="footer-particles"></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS.load('particles-js', '/online-learning/json/id5.json', function() {
+        console.log('Particles config loaded successfully');
+      }).catch(error => {
+        console.error('Failed to load particles config:', error);
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80 },
+            color: { value: "#61dafb" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#61dafb",
+              opacity: 0.4,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: "none"
+            }
+          },
+          interactivity: {
+            events: {
+              onhover: { enable: true, mode: "grab" },
+              onclick: { enable: true, mode: "push" }
+            }
+          }
+        });
+      });
+    });
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dots = document.querySelectorAll('.testimonial-nav button');
+    let currentIndex = 0;
+    function showTestimonial(index) {
+      testimonials.forEach(testimonial => {
+        testimonial.style.transform = `translateX(-${index * 100}%)`;
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showTestimonial(index));
+    });
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    }, 5000);
+    const videoContainer = document.querySelector('.video-container');
+    const playButton = document.querySelector('.play-button');
+    if (videoContainer && playButton) {
+      videoContainer.addEventListener('click', () => {
+        const iframe = videoContainer.querySelector('iframe');
+        if (iframe) {
+          iframe.src += "&autoplay=1";
+          playButton.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script src="/online-learning/scripts/id5/id5-3dFlipcard.js"></script>
+  <script src="/online-learning/scripts/id5/id5-cta.js"></script>
+  <script src="/online-learning/scripts/id5/id5-faq.js"></script>
+  <script src="/online-learning/scripts/id5/id5-footer.js"></script>
+  <script src="/online-learning/scripts/id5/id5-gradientSection.js"></script>
+  <script src="/online-learning/scripts/id5/id5-instructor_effect.js"></script>
+  <script src="/online-learning/scripts/id5/id5-parallax.js"></script>
+  <script src="/online-learning/scripts/id5/id5-respon.js"></script>
+  <script src="/online-learning/scripts/id5/id5-timeline-animation.js"></script>
+</body>
+</html>

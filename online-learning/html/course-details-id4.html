@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khóa học WSL Ubuntu | Làm chủ Linux trên Windows</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="/online-learning/styles/style.css">
+  <link rel="stylesheet" href="/online-learning/styles/ID4.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="floating-stars">
+    <div class="star" style="--size: 3px; --delay: 0s; --duration: 15s; --distance: 50vw"></div>
+    <!-- Thêm 15-20 div star tương tự với các giá trị ngẫu nhiên -->
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content animate__animated animate__fadeIn">
+      <h1 class="animate__animated animate__fadeInDown">Làm Chủ WSL Ubuntu 2024</h1>
+      <p class="animate__animated animate__fadeIn animate__delay-1s">Khóa học thực chiến để sử dụng Ubuntu trên Windows như một chuyên gia</p>
+      <div class="btn-group">
+        <a href="#register" class="btn btn-primary animate__animated animate__fadeInUp animate__delay-1s">Đăng Ký Ngay</a>
+        <a href="#curriculum" class="btn btn-secondary animate__animated animate__fadeInUp animate__delay-1s">Xem Nội Dung</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bạn sẽ học được gì -->
+  <section class="section" id="curriculum" data-aos="fade-up">
+    <h2 class="section-title">Những Gì Bạn Sẽ Học</h2>
+    <div class="content-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-icon">🐧</div>
+        <h3>Cài đặt WSL</h3>
+        <p>Cách cài đặt và cấu hình WSL, WSL2 trên Windows 10/11</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-icon">💻</div>
+        <h3>Lệnh cơ bản Ubuntu</h3>
+        <p>Thành thạo các lệnh Linux cơ bản như ls, cd, mkdir trên Ubuntu</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-icon">🔧</div>
+        <h3>Cấu hình hệ thống</h3>
+        <p>Tùy chỉnh shell, cài đặt gói phần mềm với apt</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-icon">📦</div>
+        <h3>Quản lý package</h3>
+        <p>Sử dụng apt, dpkg để quản lý phần mềm trên Ubuntu</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500">
+        <div class="card-icon">⚙️</div>
+        <h3>Tích hợp với Windows</h3>
+        <p>Chạy ứng dụng Linux GUI và tích hợp với file Windows</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="600">
+        <div class="card-icon">🛠️</div>
+        <h3>Dự án thực tế</h3>
+        <p>Xây dựng môi trường lập trình với WSL Ubuntu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giảng viên -->
+  <section class="section" data-aos="fade-up">
+    <div class="instructor">
+      <div class="instructor-content">
+        <div class="instructor-image">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Giảng viên WSL Ubuntu">
+          <div class="image-hover-effect"></div>
+        </div>
+        <h3>Trần Văn B</h3>
+        <p class="instructor-title">Linux System Engineer | DevOps Expert</p>
+        <p class="instructor-bio">Với 7+ năm kinh nghiệm quản trị hệ thống Linux và DevOps, tôi đã triển khai WSL cho nhiều dự án tại các công ty lớn như VinGroup và TMA Solutions.</p>
+        <div class="instructor-skills">
+          <h4>Chuyên môn:</h4>
+          <div class="skills-container">
+            <span class="skill-badge">WSL</span>
+            <span class="skill-badge">Ubuntu</span>
+            <span class="skill-badge">Bash Scripting</span>
+            <span class="skill-badge">Docker</span>
+            <span class="skill-badge">DevOps</span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <h2 class="section-title">Lộ Trình Học Chi Tiết</h2>
+  <div class="glass-timeline">
+    <div class="timeline-line"></div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <span class="phase-badge">PHASE 1</span>
+          <h3>Tuần 1-2: Nhập môn WSL</h3>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i>Cài đặt WSL và Ubuntu</li>
+          <li><i class="fas fa-check"></i>Các lệnh Linux cơ bản</li>
+          <li><i class="fas fa-check"></i>Cấu hình môi trường cơ bản</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tag-react">WSL Basics</span>
+          <span class="tag-js">Ubuntu</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="timeline-header">
+          <span class="phase-badge">PHASE 2</span>
+          <h3>Tuần 3-4: Quản trị Ubuntu</h3>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i>Quản lý package với apt</li>
+          <li><i class="fas fa-check"></i>Bash scripting cơ bản</li>
+          <li><i class="fas fa-check"></i>Tích hợp GUI với Windows</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tag-hooks">Package Management</span>
+          <span class="tag-router">Scripting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video giới thiệu -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title">Học WSL Ubuntu Như Thế Nào?</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/MOiT5leu8nY?list=PLIP1FbDpyHbFjRLqEX_ApZ1sffiNug9vr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Phản hồi học viên -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title clean-text">Phản Hồi Từ Học Viên</h2>
+    <div class="testimonials-container">
+      <button class="testimonial-nav-btn prev-btn" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>
+      </button>
+      <div class="testimonials-wrapper">
+        <div class="testimonials-track">
+          <div class="testimonial neon-border">
+            <div class="testimonial-content">
+              <p>"Khóa học Ubuntu này rất thực tế! Tôi đã biết cách dùng WSL hiệu quả."</p>
+              <div class="rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Học viên Phạm Văn E">
+              <div class="author-info">
+                <h4>Phạm Văn E</h4>
+                <p>DevOps Engineer tại Techcombank</p>
+                <span class="course-info">Hoàn thành khóa WSL Mastery</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial neon-border">
+            <div class="testimonial-content">
+              <p>"Giảng viên nhiệt tình, tôi tự tin quản trị hệ thống Ubuntu sau khóa học."</p>
+              <div class="rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Học viên Nguyễn Thị F">
+              <div class="author-info">
+                <h4>Nguyễn Thị F</h4>
+                <p>System Admin tại Viettel</p>
+                <span class="course-info">Hoàn thành khóa Ubuntu Admin</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="testimonial-nav-btn next-btn" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+      </button>
+      <div class="testimonial-dots">
+        <button class="dot active" aria-label="Go to testimonial 1"></button>
+        <button class="dot" aria-label="Go to testimonial 2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Tôi chưa biết Linux có học được không?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Có, khóa học bắt đầu từ cơ bản, chỉ cần bạn biết sử dụng Windows là đủ.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Khóa học có cấp chứng chỉ không?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Có, bạn sẽ nhận chứng chỉ sau khi hoàn thành các bài tập và dự án.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <svg class="faq-icon" viewBox="0 0 24 24">
+            <path class="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            <path class="minus" d="M19 13H5v-2h14v2z" style="display:none"/>
+          </svg>
+          <span>Tôi cần phần cứng mạnh để học không?</span>
+        </div>
+        <div class="faq-answer">
+          <p>Không, chỉ cần máy tính Windows 10/11 cơ bản là đủ để chạy WSL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="register" data-aos="fade-up">
+    <div class="cta">
+      <div class="cta-background">
+        <div class="cta-particles"></div>
+        <div class="cta-glow"></div>
+      </div>
+      <div class="cta-content">
+        <h2 class="clean-text">Sẵn Sàng Làm Chủ WSL Ubuntu?</h2>
+        <p>Tham gia ngay để trải nghiệm Linux trên Windows một cách chuyên nghiệp!</p>
+        <div class="cta-features">
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Học thực tế</span>
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Dự án thực hành</span>
+          <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Hỗ trợ 1-1</span>
+        </div>
+        <a href="#" class="btn btn-primary neon-border">
+          <span class="btn-text">Đăng Ký Ngay</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Section -->
+  <section class="parallax-section" data-aos="fade-up">
+    <div class="parallax-bg"></div>
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+      <h2 class="clean-text">Trải nghiệm Linux đỉnh cao</h2>
+      <p>Sử dụng WSL Ubuntu để phát triển phần mềm hiệu quả trên Windows</p>
+      <div class="parallax-features">
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Hiệu suất cao</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Dễ sử dụng</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Tích hợp Windows</span>
+      </div>
+      <a href="#" class="btn btn-primary neon-border">Khám phá ngay</a>
+    </div>
+  </section>
+
+  <!-- 3D Flip -->
+  <section class="section" data-aos="fade-up">
+    <h2 class="section-title clean-text">Lộ Trình Học Tập</h2>
+    <div class="flip-card-container">
+      <div class="flip-card neon-border">
+        <div class="flip-card-front">
+          <h3>Giai đoạn 1</h3>
+          <p>Nhập môn React</p>
+          <div class="card-icon">⚛️</div>
+        </div>
+        <div class="flip-card-back">
+          <h3>Nội dung chi tiết</h3>
+          <ul>
+            <li>Cài đặt môi trường React</li>
+            <li>Component cơ bản</li>
+            <li>Props và State</li>
+          </ul>
+          <span class="feature-tag">React Basics</span>
+        </div>
+      </div>
+      <div class="flip-card neon-border">
+        <div class="flip-card-front">
+          <h3>Giai đoạn 2</h3>
+          <p>React Nâng Cao</p>
+          <div class="card-icon">🚀</div>
+        </div>
+        <div class="flip-card-back">
+          <h3>Nội dung chi tiết</h3>
+          <ul>
+            <li>Hooks (useState, useEffect)</li>
+            <li>React Router</li>
+            <li>Context API</li>
+          </ul>
+          <span class="feature-tag">Advanced React</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gradient Animation Section -->
+  <section class="gradient-section animated-gradient" data-aos="fade-up">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-content">
+      <h2 class="clean-text">Đăng ký ngay hôm nay</h2>
+      <p class="clean-text">Nhận ưu đãi đặc biệt khi tham gia trong tháng này</p>
+      <div class="gradient-features">
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="200">Ưu đãi 20%</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="400">Truy cập trọn đời</span>
+        <span class="feature-tag" data-aos="zoom-in" data-aos-delay="600">Hỗ trợ 24/7</span>
+      </div>
+      <a href="#" class="btn btn-primary neon-border">Nhận ưu đãi</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section" data-aos="fade-up">
+    <div class="wave"></div>
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3 class="clean-text">WSL Ubuntu Mastery</h3>
+        <p>Làm chủ Linux trên Windows - Tăng tốc sự nghiệp của bạn!</p>
+      </div>
+      <div class="footer-info">
+        <p>© 2024 Khóa học WSL Ubuntu</p>
+        <p>Liên hệ: <a href="mailto:contact@wslcourse.com" class="neon-link">contact@wslcourse.com</a></p>
+      </div>
+      <div class="social-footer">
+        <a href="#" class="social-icon" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon" data-tooltip="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="footer-links">
+        <a href="#curriculum" class="footer-link">Nội dung khóa học</a>
+        <a href="#register" class="footer-link">Đăng ký</a>
+        <a href="#" class="footer-link">Chính sách bảo mật</a>
+      </div>
+    </div>
+    <div class="footer-particles"></div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Khởi tạo AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS.load('particles-js', '/online-learning/json/id4.json', function() {
+        console.log('Particles config loaded successfully');
+      }).catch(error => {
+        console.error('Failed to load particles config:', error);
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 80 },
+            color: { value: "#E95420" }, // Màu Ubuntu
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            line_linked: { enable: true, distance: 150, color: "#E95420", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none" }
+          },
+          interactivity: {
+            events: {
+              onhover: { enable: true, mode: "grab" },
+              onclick: { enable: true, mode: "push" }
+            }
+          }
+        });
+      });
+    });
+  </script>
+  <script src="/online-learning/scripts/id4/id4-3dflipcard.js"></script>
+  <script src="/online-learning/scripts/id4/id4-cta.js"></script>
+  <script src="/online-learning/scripts/id4/id4-faq.js"></script>
+  <script src="/online-learning/scripts/id4/id4-footer.js"></script>
+  <script src="/online-learning/scripts/id4/id4-gradients.js"></script>
+  <script src="/online-learning/scripts/id4/id4-instructor.js"></script>
+  <script src="/online-learning/scripts/id4/id4-parallax.js"></script>
+  <script src="/online-learning/scripts/id4/id4-testimonial.js"></script>
+  <script src="/online-learning/scripts/id4/id4-timelineAnimation.js"></script>
+  <script src="/online-learning/scripts/id4/id4-section-title.js"></script>
+</body>
+</html>

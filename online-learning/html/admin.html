@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản trị - Online Learning</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body onload="checkAdminAccess(); renderAdminCourseList()">
+  <header>
+    <h1>Trang Quản trị</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="admin.html">Quản trị</a>
+      <a href="login.html">Đăng nhập</a>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <h2>Thêm Khóa học Mới</h2>
+    <form class="admin-form" onsubmit="addCourse(event)">
+      <label for="courseTitle">Tiêu đề khóa học</label>
+      <input type="text" id="courseTitle" required />
+
+      <label for="courseDesc">Mô tả</label>
+      <textarea id="courseDesc" rows="3" required></textarea>
+
+      <label for="courseVideo">URL Video (YouTube embed)</label>
+      <input type="text" id="courseVideo" required />
+
+      <button type="submit">Thêm khóa học</button>
+    </form>
+
+    <h2>Danh sách khóa học hiện tại</h2>
+    <ul id="adminCourseList">
+      <!-- Render danh sách cho admin -->
+    </ul>
+
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

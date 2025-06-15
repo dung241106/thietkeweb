@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trang Cá Nhân - Khóa học đã đăng ký</title>
+  <!-- Bạn có thể thay đổi font, icon... tùy ý -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ------------------------------
+      RESET + BODY
+    ------------------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* ------------------------------
+      HEADER
+    ------------------------------ */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ff5722; /* Màu cam, tuỳ chỉnh */
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img {
+      height: 24px;
+      width: auto;
+    }
+    .search-box {
+      flex: 1;
+      margin: 0 2rem;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .search-box svg {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+    }
+    .header-right a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .header-right a:hover {
+      background-color: #ffece5;
+    }
+
+    /* ------------------------------
+      MAIN WRAPPER
+    ------------------------------ */
+    .container {
+      max-width: 1200px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+
+    /* ------------------------------
+      PROFILE INFO
+    ------------------------------ */
+    .profile-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      background-color: #ddd;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-info h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .profile-info .username {
+      color: #999;
+      font-size: 0.9rem;
+    }
+    .follow-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .follow-info span {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .follow-info span::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 2px;
+      background-color: #ccc;
+      margin: 0 0.5rem;
+      vertical-align: middle;
+    }
+    .follow-info span:last-child::after {
+      display: none;
+    }
+    .follow-btn {
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+    .follow-btn:hover {
+      background-color: #e44a14;
+    }
+
+    /* ------------------------------
+      TABS (Khóa học đã đăng ký, v.v.)
+    ------------------------------ */
+    .tabs {
+      margin-top: 2rem;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      gap: 2rem;
+    }
+    .tab {
+      position: relative;
+      padding-bottom: 0.75rem;
+      cursor: pointer;
+      font-weight: 500;
+      color: #555;
+    }
+    .tab.active {
+      color: #000;
+      font-weight: 600;
+    }
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100%;
+      height: 2px;
+      background-color: #ff5722;
+    }
+
+    /* ------------------------------
+      COURSES WRAP
+    ------------------------------ */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .course-card {
+      background-color: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-2px);
+    }
+    .course-thumb {
+      width: 100%;
+      aspect-ratio: 16/9; /* Để ảnh cover theo tỷ lệ 16:9 */
+      background-position: center;
+      background-size: cover;
+      background-color: #eee;
+    }
+    .course-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .course-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .course-price {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #ff5722;
+      font-weight: 600;
+    }
+    .course-price del {
+      margin-right: 0.5rem;
+      color: #999;
+      font-weight: 400;
+    }
+    .course-footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #777;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .course-footer span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .course-footer .icon {
+      font-size: 1rem;
+      color: #ff5722;
+    }
+
+    /* ------------- Responsive ------------- */
+    @media (max-width: 768px) {
+      .profile-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .follow-info {
+        flex-wrap: wrap;
+      }
+      .search-box {
+        display: none; /* Ẩn ô tìm kiếm nếu muốn, tuỳ bạn */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/888/888853.png" alt="logo" />
+      F8
+    </a>
+
+    <div class="search-box">
+      <input type="text" placeholder="Tìm kiếm khóa học, bài viết, video..." />
+      <!-- Biểu tượng kính lúp (SVG) -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+        fill="currentColor" viewBox="0 0 16 16">
+        <path d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85 
+          a1 1 0 0 1-1.415 1.415l-3.85-3.85a1 
+          1 0 0 1 0-1.415z"/>
+        <path d="M6.5 12a5.5 5.5 0 1 1 
+          0-11 5.5 5.5 0 0 1 0 11zm0-1a4.5 4.5 
+          0 1 0 0-9 4.5 4.5 0 0 0 0 9z"/>
+      </svg>
+    </div>
+
+    <div class="header-right">
+      <a href="#">Đăng ký</a>
+      <a href="#">Đăng nhập</a>
+    </div>
+  </header>
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <!-- Profile Heading -->
+    <div class="profile-heading">
+      <div class="profile-avatar"></div>
+      <div class="profile-info">
+        <h2>F 8</h2>
+        <div class="username">@8f</div>
+        <div class="follow-info">
+          <span>3 người theo dõi</span>
+          <span>0 đang theo dõi</span>
+          <span>Tham gia F8 từ 3 năm trước</span>
+        </div>
+        <button class="follow-btn">Theo dõi</button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active">Khóa học đã đăng ký (9)</div>
+      <!-- Bạn có thể thêm các tab khác nếu muốn, ví dụ: Bài viết, Video, ... -->
+      <!-- <div class="tab">Bài viết</div>
+      <div class="tab">Video</div> -->
+    </div>
+
+    <!-- Danh sách khóa học -->
+    <div class="course-grid">
+      <!-- Card 1 -->
+      <div class="course-card" data-id="1">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/7.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">HTML CSS Pro</div>
+          <div class="course-price">
+            <del>2.500.000đ</del>1.299.000đ
+          </div>
+          <div class="course-footer">
+            <span>
+              <img src="https://yt3.googleusercontent.com/ytc/AGIKgqOz-4Gwi3QGGJDDtGhF-Fk9nq8YV-Jb6RWKsw=s68-c-k-c0x00ffffff-no-rj" 
+                   alt="avatar" style="width:20px;height:20px;border-radius:50%;" />
+              Sơn Đặng
+            </span>
+            <span><i class="icon">👀</i>591</span>
+            <span><i class="icon">⏱</i>116h50p</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="course-card" data-id="6">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/6.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">Node &amp; ExpressJS</div>
+          <div class="course-price" style="color: #28a745;">Miễn phí</div>
+          <div class="course-footer">
+            <span><i class="icon">👥</i>46.973</span>
+            <span><i class="icon">📚</i>36 bài</span>
+            <span><i class="icon">⏱</i>12h8p</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="course-card" data-id="5">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/13/13.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">Xây Dựng Website với ReactJS</div>
+          <div class="course-price" style="color: #28a745;">Miễn phí</div>
+          <div class="course-footer">
+            <span><i class="icon">👥</i>74.238</span>
+            <span><i class="icon">📚</i>112 bài</span>
+            <span><i class="icon">⏱</i>27h32p</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="course-card" data-id="4">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/19/63e1bcbaed1dd.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">WSL Ubuntu</div>
+          <div class="course-price" style="color: #28a745;">Miễn phí</div>
+          <div class="course-footer">
+            <span><i class="icon">👥</i>3.890</span>
+            <span><i class="icon">📚</i>10 bài</span>
+            <span><i class="icon">⏱</i>2h30p</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="course-card" data-id="3">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/12.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">JavaScript Nâng Cao</div>
+          <div class="course-price" style="color: #28a745;">Miễn phí</div>
+          <div class="course-footer">
+            <span><i class="icon">👥</i>44.213</span>
+            <span><i class="icon">📚</i>30 bài</span>
+            <span><i class="icon">⏱</i>15h25p</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="course-card" data-id="2">
+        <div class="course-thumb"
+          style="background-image: url('https://files.fullstack.edu.vn/f8-prod/courses/1.png');">
+        </div>
+        <div class="course-content">
+          <div class="course-title">JavaScript Cơ Bản</div>
+          <div class="course-price" style="color: #28a745;">Miễn phí</div>
+          <div class="course-footer">
+            <span><i class="icon">👥</i>120.745</span>
+            <span><i class="icon">📚</i>22 bài</span>
+            <span><i class="icon">⏱</i>10h8p</span>
+          </div>
+        </div>
+      </div>
+      <!-- ... Thêm các card khác nếu muốn ... -->
+    </div>
+  </div>
+  <script src="scripts/main.js"></script>
+
+</body>
+
+</html>
